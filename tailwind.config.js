@@ -1,21 +1,19 @@
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
       sans: ["Montserrat"],
-      inter: ["Montserrat"], 
+      montserrat: ["Montserrat"],
     },
     extend: {
       colors: {
-        'yellow': '#FEAF00',
-        'darkGray' : '#6C6C6C',
-        'lightGray' : '#CDCDCD',
-        'white' : '#FFFFFF',
-      }
-    }
+        darkYellow: "#FEAF00",
+        lightYellow: "#F8D442",
+        darkGray: "#6C6C6C",
+        lightGray: "#CDCDCD",
+        white: "#FFFFFF",
+      },
+    },
   },
   plugins: [],
-}
+};
