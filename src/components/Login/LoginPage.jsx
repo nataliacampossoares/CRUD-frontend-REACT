@@ -9,8 +9,8 @@ export default function LoginPage() {
             <p className="font-bold text-4xl">CRUD OPERATIONS</p>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <p className="font-bold text-xl">SIGN IN</p>
-            <p className="text-darkGray text-sm pb-10">
+            <p className="font-semibold text-2xl">SIGN IN</p>
+            <p className="text-darkGray text-md pb-10">
               Enter your credentials to access your account
             </p>
           </div>
