@@ -1,5 +1,4 @@
-import LoginPage from "./components/Login/LoginPage";
-
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
     return (    

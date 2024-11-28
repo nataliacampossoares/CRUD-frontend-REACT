@@ -12,6 +12,7 @@ export default {
         darkGray: "#6C6C6C",
         lightGray: "#CDCDCD",
         white: "#FFFFFF",
+        beige: "#F2EAE1",
       },
     },
   },
