@@ -1,7 +1,9 @@
+import Sidebar from "../components/Sidebar";
+
 export default function Student() {
     return(
         <div>
-            <p>estudante</p>
+            <Sidebar/>
         </div>
     )
 }
