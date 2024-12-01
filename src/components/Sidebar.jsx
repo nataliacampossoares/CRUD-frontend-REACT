@@ -12,9 +12,10 @@ export default function Sidebar() {
     let estilo = `
       flex items-center gap-4
       px-3 py-3 w-full 
-      hover:bg-darkYellow`;
+      hover:bg-darkYellow
+      rounded-md`;
       
-    let ativo = "border-solid border-r-4 border-darkYellow ";
+    let ativo = "border-solid border-r-4 border-darkYellow rounded-md";
 
     let final = props.isActive ? estilo + ativo : estilo;
 
@@ -52,7 +53,7 @@ export default function Sidebar() {
           </div>
         </NavLink>
       </nav>
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center pb-2 mb-2">
         <p className="text-md font-medium">Logout</p>
         <LogOut size={20} />
       </div>
