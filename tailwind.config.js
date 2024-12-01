@@ -13,6 +13,8 @@ export default {
         lightGray: "#CDCDCD",
         white: "#FFFFFF",
         beige: "#F2EAE1",
+        whiteGray: '#E5E5E5',
+        lightGray2: '#ACACAC'
       },
     },
   },

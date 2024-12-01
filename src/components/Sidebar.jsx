@@ -22,7 +22,7 @@ export default function Sidebar() {
     return final;}
 
   return (
-    <div className="flex flex-col items-center justify-between min-w-[180px] max-w-[270px] h-screen bg-beige">
+    <div className="flex flex-col items-center justify-between w-[280px] h-screen bg-beige">
       <div className="pt-4">
         <div className="border-l-4 border-lightYellow pl-1">
           <p className="font-bold text-xl">CRUD OPERATIONS</p>

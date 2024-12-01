@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-button {
+    width: 12rem !important; /* Tamanho fixo do botão */
+    padding: 0.5rem 1rem !important; /* Ajusta o padding */
+    margin: 0.5rem !important; /* Ajusta a margem */
+}

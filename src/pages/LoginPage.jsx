@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Form from "../components/Form";
+import Button from "../components/Button";
 
 
 export default function LoginPage() {
@@ -25,7 +26,7 @@ export default function LoginPage() {
           </div>
         </div>
         <Form/>
-        <button className="bg-darkYellow rounded-sm p-2 m-10 text-white w-96" onClick={home}>SIGN IN</button>
+        <button className="bg-darkYellow rounded-sm p-2 m-10 text-white w-96">SIGN IN</button>
         <p className="text-sm text-darkGray">Forgot your password? <span className="text-darkYellow underline">Reset Password</span></p>
       </div>
     </div>
