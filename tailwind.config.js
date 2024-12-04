@@ -15,9 +15,7 @@ export default {
         beige: "#F2EAE1",
         whiteGray: '#E5E5E5',
         lightGray2: '#ACACAC',
-        lightBlue: '#F0F9FF',
-        lightPink: '#FEF6FB',
-        lightOrange: '#FEFBEC'
+        
         
       },
     },
