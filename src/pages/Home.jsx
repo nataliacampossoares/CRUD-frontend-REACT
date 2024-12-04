@@ -23,7 +23,7 @@ export default function Home() {
         <div className="bg-lightPink bg-opacity-30 w-56 h-48 rounded-lg">
           <img src={Bookmark} alt="bookmark.pg" className="ml-10 mt-10" />
           <p className="text-sm">Course</p>
-          <div className=" flez justify-end items-end font-bold text-lg">13</div>
+          <div className=" flex justify-end items-end font-bold text-lg">13</div>
         </div> 
 
         
