@@ -14,32 +14,32 @@ export default function Home() {
       <div className="flex items-start p-4 gap-4 w-full">
       
         <div className="bg-blue-500 bg-opacity-50 w-56 h-48 rounded-lg">
-          <img src={Graduation} alt="graduation.pg" className="h-16 ml-10" />
+          <img src={Graduation} alt="graduation.pg" className="m-10" />
           <p className="text-sm">Students</p>
-          <div className="flex justify-end items-end font-bold text-lg">243</div>
+          <div className="font-bold text-lg">243</div>
         </div>
 
      
         <div className="bg-pink-500 bg-opacity-30 w-56 h-48 rounded-lg">
-          <img src={Bookmark} alt="bookmark.pg" className="h-16 ml-10" />
+          <img src={Bookmark} alt="bookmark.pg" className="m-10" />
           <p className="text-sm">Course</p>
           <div className=" flez justify-end items-end font-bold text-lg">13</div>
-        </div>
+        </div> 
 
         
         <div className="bg-orange-500 bg-opacity-30 w-56 h-48 rounded-lg">
-          <img src={Vector} alt="vector.pg" className="h-16 ml-10" />
+          <img src={Vector} alt="vector.pg" className="m-10" />
           <p className="text-sm">Payments</p>
-          <div className="flex justify-end items-end font-bold text-sm">IRN</div>
-          <div className="flex justify-end items-end font-bold text-lg">243</div>
+          <div className="font-bold text-sm">IRN</div>
+          <div className="font-bold text-lg">243</div>
           
         </div>
 
         
         <div className="bg-#FEAF00 w-56 h-48 rounded-lg">
-          <img src={Graduation} alt="graduation.pg" className="h-16 ml-10" />
+          <img src={Vector} alt="vector.pg" className=" m-10" />
           <p className="text-sm">Users</p>
-          <div className="flex justify-end items-end font-bold text-lg">3</div> 
+          <div className="font-bold text-lg">3</div> 
         </div>
       </div>
     </div>
