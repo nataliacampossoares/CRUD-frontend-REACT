@@ -35,7 +35,7 @@ export default function Card() {
           </p>
         ) : (
           <div className="flex flex-col w-full">
-            {users.map((user, index) => (
+            {users.map((user) => (
 
               <div
                 key={user.id}
