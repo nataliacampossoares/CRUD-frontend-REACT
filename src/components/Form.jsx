@@ -1,18 +1,11 @@
-import { useState } from "react";
-
-export default function Form() {
-
-    const [inputEmail, setInputEmail] = useState("")
-    const [inputPassword, setInputPassword] = useState("")
+export default function Form({ inputEmail, setInputEmail, inputPassword, setInputPassword }) {
 
     const handleInputChange = (event) => {
         setInputEmail(event.target.value);
-        console.log(inputEmail)
       };
 
     const handlePasswordChange = (event) => {
         setInputPassword(event.target.value);
-        console.log(inputPassword)
     }
 
     return (

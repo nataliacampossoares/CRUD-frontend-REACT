@@ -1,21 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 import { useState } from "react";
 
-
 export default function LoginPage() {
-
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const navigate = useNavigate();
 
   const home = () => {
     if (!inputEmail || !inputPassword) {
       alert("Por favor, preencha todos os campos!");
     } else {
-      console.log("Email:", inputEmail);
-      console.log("Password:", inputPassword);
-      // Redirecionar para a página home
-      console.log("Redirecionando para /home...");
+      if (inputEmail === "admin@email.com" || inputPassword === "admin") {
+        navigate("/home");
+      } else {
+        alert("E-mail or password incorrect")
+      }
     }
   };
 
@@ -39,8 +39,16 @@ export default function LoginPage() {
           inputPassword={inputPassword}
           setInputPassword={setInputPassword}
         />
-        <button className="bg-darkYellow rounded-sm p-2 m-10 text-white w-96" onClick={home}>SIGN IN</button>
-        <p className="text-sm text-darkGray">Forgot your password? <span className="text-darkYellow underline">Reset Password</span></p>
+        <button
+          className="bg-darkYellow rounded-sm p-2 m-10 text-white w-96"
+          onClick={home}
+        >
+          SIGN IN
+        </button>
+        <p className="text-sm text-darkGray">
+          Forgot your password?{" "}
+          <span className="text-darkYellow underline">Reset Password</span>
+        </p>
       </div>
     </div>
   );

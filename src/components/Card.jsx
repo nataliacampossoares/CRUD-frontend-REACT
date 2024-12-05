@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
 
 export default function Card() {
-  const [users, setUsers] = useState([]); // Estado para armazenar os usuários
-  const [loading, setLoading] = useState(true); // Estado para gerenciar o carregamento
-  const [error, setError] = useState(null); // Estado para erros
-
+  const [users, setUsers] = useState([]); //
+  const [loading, setLoading] = useState(true); // 
+  const [error, setError] = useState(null); // 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
           "https://crud-backend-react.onrender.com/usuarios"
-        ); // URL do backend
+        ); // 
         if (!response.ok) {
           throw new Error("Erro ao buscar os usuários");
         }
         const data = await response.json();
-        setUsers(data); // Atualiza o estado com os usuários
+        setUsers(data); //
       } catch (error) {
-        setError(error.message); // Armazena a mensagem de erro
+        setError(error.message); // 
       } finally {
-        setLoading(false); // Finaliza o estado de carregamento
+        setLoading(false); // 
       }
     };
 
-    fetchUsers(); // Chama a função de busca
-  }, []); // O array vazio faz com que a requisição ocorra apenas uma vez após a montagem
+    fetchUsers(); // 
+  }, []); // 
 
   return (
     <div>
@@ -39,7 +38,7 @@ export default function Card() {
 
               <div
                 key={user.id}
-                className="bg-white p-6 border-b-2 border-t-2 border-lightYellow flex justify-between"
+                className="bg-white p-6 border-t-2 border-lightYellow flex justify-around gap-24"
               >
                 <h2 className="text-black">
                   {user.nome}
@@ -55,10 +54,6 @@ export default function Card() {
           </div>
         )}
       </div>
-      {/* <img src="" alt="" />
-      <p>Nome</p>
-      <p>Email</p>
-      <p>Telefone</p> */}
     </div>
   );
 }

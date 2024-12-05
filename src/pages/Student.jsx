@@ -53,12 +53,14 @@ export default function Student() {
               ADD NEW STUDENT
             </button>
           </div>
-          <div className="flex gap-72 justify-center">
-            <p className="text-lightGray2 font-semibold text-sm">Name</p>
-            <p className="text-lightGray2 font-semibold text-sm">E-mail</p>
-            <p className="text-lightGray2 font-semibold text-sm">Phone</p>
+          <div className="flex flex-col justify-center ml-6">
+            <div className="flex gap-72 justify-center">
+              <p className="text-lightGray2 font-semibold text-sm">Name</p>
+              <p className="text-lightGray2 font-semibold text-sm">E-mail</p>
+              <p className="text-lightGray2 font-semibold text-sm">Phone</p>
+            </div>
+            <Card />
           </div>
-          <Card />
         </div>
       </div>
     </div>

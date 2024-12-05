@@ -5,7 +5,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import _ from "../assets/_.jpeg"
+import photo from "../assets/_.jpeg"
 
 export default function Sidebar() {
 
@@ -30,7 +30,7 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <img src={_} className="rounded-full w-40 h-40" />
+        <img src={photo} className="rounded-full w-40 h-40" />
         <p className="font-bold text-lg mt-4">Harry Styles</p>
         <p className="text-darkYellow font-semibold text-sm">Admin</p>
       </div>
