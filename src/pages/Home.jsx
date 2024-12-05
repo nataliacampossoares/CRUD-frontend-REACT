@@ -36,8 +36,6 @@ export default function Home() {
           </div>
           
         </div>
-
-        
         <div className=" bg-darkYellow w-56 h-48 rounded-lg">
           <img src={Vector} alt="vector.pg" className="ml-10 mt-10" />
           <p className="text-sm">Users</p>
