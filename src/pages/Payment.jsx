@@ -10,10 +10,13 @@ export default function Payment(){
                <p className="font-bold text-xl">Paymentes Details</p>
                
             </div>
-            <div className="flex gap-72 justify-end">
+            <div className="flex  justify-end">
                <p className="text-lightGray2 font-semibold text-sm">Name</p>
-               <p className="text-lightGray2 font-semibold text-sm">E-mail</p>
-               <p className="text-lightGray2 font-semibold text-sm">Phone</p>
+               <p className="text-lightGray2 font-semibold text-sm">Payment Schedule</p>
+               <p className="text-lightGray2 font-semibold text-sm">Bill Number</p>
+               <p className="text-lightGray2 font-semibold text-sm">Amount Paid</p>
+               <p className="text-lightGray2 font-semibold text-sm">Balance amount</p>
+               <p className="text-lightGray2 font-semibold text-sm">Day</p>
             </div>
             </div>
           </div>
