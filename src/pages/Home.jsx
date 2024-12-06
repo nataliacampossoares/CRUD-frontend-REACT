@@ -7,9 +7,26 @@ import Vector from "../assets/vector.png";
 export default function Home() {
   return (
     
-    <div className="flex">
+    <div className="flex h-screen">
       
       <Sidebar />
+
+      <div className="absolute top-0 right-0 flex justify-between items-center p-4 w-50  h-10  z-10">
+    
+        <div className="flex items-center mt-10 px-4 py-2 w-4/5 border border-gray-500 rounded-lg m-10">
+  
+          <input
+            type="text"
+            placeholder="Search..."
+            className="ml-2 w-full bg-transparent focus:outline-none text-gray-700"
+          />
+          <span className="material-icons text-gray-500">search</span>
+        </div>
+
+        <div className="flex items-center ">
+          <span className="material-icons text-gray-500 hover:text-gray-800">notifications</span>
+        </div>
+      </div>
 
       <div className="flex m-10 ml-auto p-4 gap-4">
         <div className="relative bg-blue-500 bg-opacity-20 w-56 h-48 rounded-lg">
@@ -21,7 +38,7 @@ export default function Home() {
           <p className="mt-16 ml-4 text-sm">Students</p>
           <div className="absolute bottom-4 right-4 font-bold text-2xl">243</div>
         </div>
-
+      
         <div className="relative bg-pink-500 bg-opacity-20 w-56 h-48 rounded-lg">
           <img
             src={Bookmark}
