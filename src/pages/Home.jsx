@@ -11,7 +11,7 @@ export default function Home() {
       <Sidebar />
 
       
-      <div className="flex items-start p-4 gap-4 w-full">
+      <div className="ml-[280px] flex items-start p-4 gap-4 w-full relative">
       
         <div className="bg-blue-500 bg-opacity-50 w-56 h-48 rounded-lg">
           <img src={Graduation} alt="graduation.pg" className="ml-10 mt-10" />

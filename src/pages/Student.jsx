@@ -42,7 +42,7 @@ export default function Student() {
     <div className="flex">
       <Sidebar />
       {addModalOpen && <ModalForm closeModal={close} />}
-      <div className="flex h-screen w-full">
+      <div className="ml-[280px] flex items-start p-4 gap-4 w-full relative">
         <div className="flex flex-col w-full pr-20">
           <div className="flex justify-between items-center m-5 w-full h-fit pb-4 pt-6 border-solid border-b-2 border-whiteGray">
             <p className="font-bold text-xl">Students List</p>
@@ -54,7 +54,8 @@ export default function Student() {
             </button>
           </div>
           <div className="flex flex-col justify-center ml-6">
-            <div className="flex gap-72 justify-center">
+            <div className="grid grid-cols-4" style={{ gridTemplateColumns: "0.2fr 0.7fr 0.8fr 1fr" }}>
+              <p></p>
               <p className="text-lightGray2 font-semibold text-sm">Name</p>
               <p className="text-lightGray2 font-semibold text-sm">E-mail</p>
               <p className="text-lightGray2 font-semibold text-sm">Phone</p>
