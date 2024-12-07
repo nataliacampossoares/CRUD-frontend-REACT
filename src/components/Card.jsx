@@ -3,29 +3,34 @@ import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 
 export default function Card() {
-  const [users, setUsers] = useState([]); //
-  const [loading, setLoading] = useState(true); //
-  const [error, setError] = useState(null); //
+  const [users, setUsers] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
           "https://crud-backend-react.onrender.com/usuarios"
-        ); //
+        );
         if (!response.ok) {
           throw new Error("Erro ao buscar os usuários");
         }
         const data = await response.json();
-        setUsers(data); //
+        setUsers(data); 
       } catch (error) {
-        setError(error.message); //
+        setError(error.message); 
       } finally {
-        setLoading(false); //
+        setLoading(false); 
       }
     };
 
-    fetchUsers(); //
-  }, []); //
+    fetchUsers(); 
+  }, []);
+
+  const handleDelete = (id) => {
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id)); 
+  };
 
   return (
     <div>
@@ -39,13 +44,14 @@ export default function Card() {
             {users.map((user) => (
               <div
                 key={user.id}
-                className="bg-white p-6 border-t-2 border-lightYellow grid grid-cols-4 items-center gap-4" style={{ gridTemplateColumns: "1fr 2fr 1fr 1fr" }}
+                className="bg-white p-6 border-t-2 border-lightYellow grid grid-cols-4 items-center gap-4"
+                style={{ gridTemplateColumns: "1fr 2fr 1fr 1fr" }}
               >
                 <p className="text-black">{user.nome}</p>
                 <p className="text-black">{user.email}</p>
                 <p className="text-black">{user.celular}</p>
                 <div className="flex justify-end items-center gap-4">
-                  <DeleteButton />
+                  <DeleteButton id={user.id} onDelete={handleDelete} />
                   <EditButton />
                 </div>
               </div>
