@@ -3,9 +3,20 @@ import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
 
 export default function Card() {
-  const [users, setUsers] = useState([]); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+
+// Atualizando um usuário após edição
+const handleUpdate = (id, updatedUser) => {
+  setUsers((prevUsers) =>
+    prevUsers.map((user) =>
+      user.id === id ? updatedUser : user
+    )
+  );
+};
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -17,19 +28,19 @@ export default function Card() {
           throw new Error("Erro ao buscar os usuários");
         }
         const data = await response.json();
-        setUsers(data); 
+        setUsers(data);
       } catch (error) {
-        setError(error.message); 
+        setError(error.message);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
-    fetchUsers(); 
+    fetchUsers();
   }, []);
 
   const handleDelete = (id) => {
-    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id)); 
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
   };
 
   return (
@@ -52,7 +63,15 @@ export default function Card() {
                 <p className="text-black">{user.celular}</p>
                 <div className="flex justify-end items-center gap-4">
                   <DeleteButton id={user.id} onDelete={handleDelete} />
-                  <EditButton />
+                  <EditButton
+                    id={user.id}
+                    currentData={{
+                      nome: user.nome || "",
+                      email: user.email || "",
+                      celular: user.celular || "",
+                    }}
+                    onUpdate={handleUpdate}
+                  />
                 </div>
               </div>
             ))}

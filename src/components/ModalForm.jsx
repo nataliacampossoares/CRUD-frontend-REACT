@@ -2,8 +2,6 @@ import { X } from "lucide-react";
 import { useState } from "react";
 
 export default function ModalForm({ closeModal }) {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPhone, setInputPhone] = useState("");
