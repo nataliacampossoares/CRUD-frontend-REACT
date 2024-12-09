@@ -1,4 +1,4 @@
-import { Edit } from "lucide-react";
+import { Edit, X } from "lucide-react";
 import { useState } from "react";
 
 export default function EditButton({ id, currentData = {}, onUpdate }) {
@@ -26,58 +26,77 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
           body: JSON.stringify(formData),
         }
       );
-  
-      console.log("Response status:", response.status); // Verifica o status
-  
+
+      console.log("Response status:", response.status);
+
       if (!response.ok) {
         throw new Error("Erro ao atualizar o estudante.");
       }
-  
-      // Chama o onUpdate mesmo sem dados retornados
+
       if (response.status === 204) {
         console.log("Nenhum dado retornado, assumindo sucesso na atualização.");
-        onUpdate(id, formData); // Usa os dados locais para atualizar a interface
+        onUpdate(id, formData);
       } else {
         const updatedData = await response.json();
         console.log("Updated data:", updatedData);
-        onUpdate(id, updatedData); // Atualiza com os dados retornados
+        onUpdate(id, updatedData);
       }
-  
+
       setEditing(false);
     } catch (error) {
-      console.log("oiiiiiiii fofa ta dando errado");
       console.error("Erro:", error.message);
     }
   };
-  
-  
+
   return (
     <>
       {editing ? (
-        <div>
-          <input
-            type="text"
-            name="nome"
-            value={formData.nome}
-            onChange={handleInputChange}
-            placeholder="Nome"
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Email"
-          />
-          <input
-            type="tel"
-            name="celular"
-            value={formData.celular}
-            onChange={handleInputChange}
-            placeholder="Celular"
-          />
-          <button onClick={updateStudent}>Salvar</button>
-          <button onClick={() => setEditing(false)}>Cancelar</button>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-darkYellow border-2 border-solid border-darkYellow flex flex-col justify-center items-center gap-4 p-8 rounded-md w-[400px] h-[350px]">
+            <div className="flex items-baseline h-10 gap-2">
+              <p className="font-bold text-white text-xl">Edit Student</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <input
+                type="text"
+                name="nome"
+                value={formData.nome}
+                onChange={handleInputChange}
+                placeholder="Name"
+                className="border border-lightGray rounded-md text-sm p-3"
+              />
+              <input
+                type="text"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="E-mail"
+                className="border border-lightGray rounded-md text-sm p-3"
+              />
+              <input
+                type="tel"
+                name="celular"
+                value={formData.celular}
+                onChange={handleInputChange}
+                placeholder="Phone"
+                className="border border-lightGray rounded-md text-sm p-3"
+              />
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={updateStudent}
+                className="bg-white rounded-md p-3 text-darkYellow w-32 h-fit text-sm font-semibold border-1 border-solid border-lightYellow"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => setEditing(false)}
+                className="bg-white rounded-md p-3 text-darkYellow w-32 h-fit text-sm font-semibold border-1 border-solid border-lightYellow"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         </div>
       ) : (
         <button onClick={() => setEditing(true)}>
@@ -86,6 +105,4 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
       )}
     </>
   );
-  };
-
-
+}

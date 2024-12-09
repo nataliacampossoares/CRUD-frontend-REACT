@@ -45,6 +45,7 @@ export default function ModalForm({ closeModal }) {
       setInputName("");
       setInputEmail("");
       setInputPhone("");
+      closeModal()
     } catch (error) {
       setError(error.message);
     }
