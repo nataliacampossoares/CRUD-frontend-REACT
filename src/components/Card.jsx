@@ -6,17 +6,12 @@ export default function Card() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
 
-// Atualizando um usuário após edição
-const handleUpdate = (id, updatedUser) => {
-  setUsers((prevUsers) =>
-    prevUsers.map((user) =>
-      user.id === id ? updatedUser : user
-    )
-  );
-};
-
+  const handleUpdate = (id, updatedUser) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) => (user.id === id ? updatedUser : user))
+    );
+  };
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -66,9 +61,9 @@ const handleUpdate = (id, updatedUser) => {
                   <EditButton
                     id={user.id}
                     currentData={{
-                      nome: user.nome || "",
-                      email: user.email || "",
-                      celular: user.celular || "",
+                      nome: user.nome,
+                      email: user.email,
+                      celular: user.celular,
                     }}
                     onUpdate={handleUpdate}
                   />
