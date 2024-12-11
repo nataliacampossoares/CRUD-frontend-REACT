@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import { useState } from "react";
+import { validateEmail, validatePhone } from "./Validate";
 
 export default function ModalForm({ closeModal }) {
   const [inputName, setInputName] = useState("");
@@ -15,13 +16,19 @@ export default function ModalForm({ closeModal }) {
     setInputEmail(event.target.value);
   }
   function handleInputPhone(event) {
-    setInputPhone(event.target.value);
+    const maskedValue = validatePhone(event.target.value);
+    setInputPhone(maskedValue);
   }
 
   const addStudent = async () => {
 
     if (!inputName || !inputEmail || !inputPhone) {
-      alert("Por favor, preencha todos os campos.");
+      alert("Please, fill in all fields.");
+      return;
+    }
+
+    if (!validateEmail(inputEmail)) {
+      alert("Please, enter a valid email.");
       return;
     }
 

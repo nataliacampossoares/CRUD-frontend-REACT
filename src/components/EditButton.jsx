@@ -1,5 +1,6 @@
 import { Edit, X } from "lucide-react";
 import { useState } from "react";
+import { validatePhone, validateEmail } from "../components/Validate";
 
 export default function EditButton({ id, currentData = {}, onUpdate }) {
   const [editing, setEditing] = useState(false);
@@ -10,15 +11,30 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
   });
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const target = event.target;
+    const { name, value } = target;
+  
+    let maskedValue = value;
+  
+    if (name === "celular") {
+      maskedValue = validatePhone(value); 
+    }
+  
+    setFormData((prev) => ({ ...prev, [name]: maskedValue }));
   }
 
   async function updateStudent() {
+
     if (!formData.nome || !formData.email || !formData.celular) {
-      alert("Por favor, preencha todos os campos.");
+      alert("Please, fill in all fields.");
       return;
     }
+
+    if (!validateEmail(formData.email)) {
+      alert("Please, enter a valid email.");
+      return;
+    }
+    
 
     try {
       const response = await fetch(
