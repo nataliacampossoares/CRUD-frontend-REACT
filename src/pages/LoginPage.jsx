@@ -1,4 +1,4 @@
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 import { useState } from "react";
 
@@ -7,20 +7,26 @@ export default function LoginPage() {
   const [inputPassword, setInputPassword] = useState("");
   const navigate = useNavigate();
 
-  const home = () => {
+  function home() {
     if (!inputEmail || !inputPassword) {
-      alert("Por favor, preencha todos os campos!");
+      alert("Please, fill in all fields.");
     } else {
       if (inputEmail === "admin@email.com" || inputPassword === "admin") {
         navigate("/home");
       } else {
-        alert("E-mail or password incorrect")
+        alert("E-mail or password incorrect.")
       }
     }
   };
 
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      home();
+    }
+  }
+
   return (
-    <div className="bg-gradient-to-r from-darkYellow to-lightYellow w-full h-screen flex justify-center items-center">
+    <div onKeyDown={handleKeyDown} className="bg-gradient-to-r from-darkYellow to-lightYellow w-full h-screen flex justify-center items-center">
       <div className="bg-white rounded-lg p-8 flex flex-col items-center">
         <div className="flex flex-col justify-center items-center gap-10">
           <div className="border-l-8 border-lightYellow pl-2">

@@ -21,7 +21,7 @@ export default function Student() {
       {addModalOpen && <ModalForm closeModal={close} />}
       <div className="ml-[280px] flex items-start p-4 gap-4 w-full relative">
         <SearchBar/>
-        <div className="flex flex-col w-full pr-20">
+        <div className="flex flex-col w-full pr-20 pt-3">
           <div className="flex justify-between items-center m-5 w-full h-fit pb-4 pt-6 border-solid border-b-2 border-whiteGray">
             <p className="font-bold text-xl">Students List</p>
             <button

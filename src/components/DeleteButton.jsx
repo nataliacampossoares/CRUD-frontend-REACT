@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function DeleteButton({ id, onDelete }) {
   const [error, setError] = useState(null);
 
-  const deleteStudent = async () => {
+  async function deleteStudent () {
     try {
       const response = await fetch(
         `https://crud-backend-react.onrender.com/usuarios/${id}`, 

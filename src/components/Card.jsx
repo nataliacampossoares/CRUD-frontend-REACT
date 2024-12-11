@@ -7,7 +7,7 @@ export default function Card() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleUpdate = (id, updatedUser) => {
+  function handleUpdate (id, updatedUser) {
     setUsers((prevUsers) =>
       prevUsers.map((user) => (user.id === id ? updatedUser : user))
     );
@@ -34,7 +34,7 @@ export default function Card() {
     fetchUsers();
   }, []);
 
-  const handleDelete = (id) => {
+  function handleDelete(id){
     setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
   };
 

@@ -64,8 +64,14 @@ export default function ModalForm({ closeModal }) {
     }
   };
 
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      addStudent();
+    }
+  }
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div onKeyDown={handleKeyDown}  className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-darkYellow border-2 border-solid border-darkYellow flex flex-col justify-center items-center gap-4 p-8 rounded-md w-[400px] h-[350px]">
         <div className="flex items-baseline h-10 gap-2">
           <p className="font-bold text-white text-xl">Add New Student</p>

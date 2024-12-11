@@ -34,7 +34,7 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
       alert("Please, enter a valid email.");
       return;
     }
-    
+
 
     try {
       const response = await fetch(
@@ -53,11 +53,9 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
       }
 
       if (response.status === 204) {
-        console.log("Nenhum dado retornado, assumindo sucesso na atualização.");
         onUpdate(id, formData);
       } else {
         const updatedData = await response.json();
-        console.log("Updated data:", updatedData);
         onUpdate(id, updatedData);
       }
 
@@ -67,10 +65,16 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
     }
   }
 
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      updateStudent();
+    }
+  }
+
   return (
     <>
       {editing ? (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div onKeyDown={handleKeyDown} className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-darkYellow border-2 border-solid border-darkYellow flex flex-col justify-center items-center gap-4 p-8 rounded-md w-[400px] h-[350px]">
             <div className="flex items-baseline h-10 gap-2">
               <p className="font-bold text-white text-xl">Edit Student</p>
