@@ -7,7 +7,6 @@ export default function SearchBar() {
     <div className="absolute top-0 right-0 flex justify-between items-center p-4 w-full h-10 z-10 m-5">
 
       <div className="flex items-center ml-80">
-        <img src={Circle} alt="" />
         
       </div>
 
