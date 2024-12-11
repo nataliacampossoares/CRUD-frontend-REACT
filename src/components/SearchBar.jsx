@@ -16,7 +16,7 @@ export default function SearchBar() {
           <input
             type="text"
             placeholder="Search..."
-            className="ml-2 w-full bg-transparent focus:outline-none text-lightGray3"
+            className="ml-2 w-full bg-transparent focus:outline-none text-black"
           />
           <span className="material-icons text-lightGray3">search</span>
         </div>

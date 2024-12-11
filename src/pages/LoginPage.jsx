@@ -11,7 +11,7 @@ export default function LoginPage() {
     if (!inputEmail || !inputPassword) {
       alert("Please, fill in all fields.");
     } else {
-      if (inputEmail === "admin@email.com" || inputPassword === "admin") {
+      if (inputEmail === "admin@email.com" && inputPassword === "admin") {
         navigate("/home");
       } else {
         alert("E-mail or password incorrect.")

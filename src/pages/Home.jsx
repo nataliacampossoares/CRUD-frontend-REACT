@@ -37,7 +37,7 @@ export default function Home() {
       <Sidebar />
       <SearchBar />
 
-      <div className="flex ml-auto m-20 p-4 gap-4">
+      <div className="flex ml-72 m-20 p-4 gap-4">
         <div className="relative bg-blue-500 bg-opacity-10 w-56 h-48 rounded-lg">
           <img
             src={Graduation}

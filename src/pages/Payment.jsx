@@ -58,7 +58,7 @@ export default function Payment() {
       <Sidebar />
       <SearchBar />
 
-      <div className="ml-[280px] flex flex-col p-4 gap-4 w-full relative">
+      <div className="ml-[280px] flex flex-col p-4 gap-4 w-full relative overflow-hidden">
         <div className="flex justify-between items-center m-5 w-full h-fit pb-4 border-solid border-b-2 border-whiteGray">
           <p className="font-bold text-xl">Payment Details</p>
         </div>
