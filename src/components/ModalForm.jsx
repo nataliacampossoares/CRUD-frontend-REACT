@@ -19,6 +19,12 @@ export default function ModalForm({ closeModal }) {
   }
 
   const addStudent = async () => {
+
+    if (!inputName || !inputEmail || !inputPhone) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
     const studentData = {
       nome: inputName,
       email: inputEmail,

@@ -9,12 +9,17 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
     celular: currentData.celular,
   });
 
-  const handleInputChange = (event) => {
+  function handleInputChange(event) {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }
 
-  const updateStudent = async () => {
+  async function updateStudent() {
+    if (!formData.nome || !formData.email || !formData.celular) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
     try {
       const response = await fetch(
         `https://crud-backend-react.onrender.com/usuarios/${id}`,
@@ -44,7 +49,7 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
     } catch (error) {
       console.error("Erro:", error.message);
     }
-  };
+  }
 
   return (
     <>
