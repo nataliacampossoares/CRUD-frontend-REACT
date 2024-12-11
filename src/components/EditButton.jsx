@@ -27,8 +27,6 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
         }
       );
 
-      console.log("Response status:", response.status);
-
       if (!response.ok) {
         throw new Error("Erro ao atualizar o estudante.");
       }
