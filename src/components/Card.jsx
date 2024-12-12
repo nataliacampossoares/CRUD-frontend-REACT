@@ -6,19 +6,9 @@ import { useAppContext } from "../context/AppContext";
 export default function Card() {
   const { fetchUsers, users } = useAppContext()
 
-  function handleUpdate (id, updatedUser) {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) => (user.id === id ? updatedUser : user))
-    );
-  };
-
   useEffect(() => {
     fetchUsers()
   }, []);
-
-  function handleDelete(id){
-    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-  };
 
   return (
     <div>
@@ -39,7 +29,7 @@ export default function Card() {
                 <p className="text-black">{user.email}</p>
                 <p className="text-black">{user.celular}</p>
                 <div className="flex justify-end items-center gap-4">
-                  <DeleteButton id={user.id} onDelete={handleDelete} />
+                  <DeleteButton id={user.id} />
                   <EditButton
                     id={user.id}
                     currentData={{
@@ -47,7 +37,6 @@ export default function Card() {
                       email: user.email,
                       celular: user.celular,
                     }}
-                    onUpdate={handleUpdate}
                   />
                 </div>
               </div>
