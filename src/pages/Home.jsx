@@ -5,32 +5,12 @@ import Usdsquare from "../assets/usd-square.png";
 import Vector from "../assets/vector.png";
 import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
+import { useAppContext } from "../context/AppContext";
 
 export default function Home() {
-  const [users, setUsers] = useState([]); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch(
-          "https://crud-backend-react.onrender.com/usuarios"
-        );
-        if (!response.ok) {
-          throw new Error("Erro ao buscar os usuários");
-        }
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const { users } = useAppContext()
 
-    fetchUsers();
-  }, []);
   
   return (
     <div className="flex h-screen">
