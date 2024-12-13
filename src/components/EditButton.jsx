@@ -1,14 +1,16 @@
 import { Edit, X } from "lucide-react";
 import { useState } from "react";
 import { validatePhone, validateEmail } from "../components/Validate";
+import { useAppContext } from "../context/AppContext";
 
-export default function EditButton({ id, currentData = {}, onUpdate }) {
+export default function EditButton({ id, currentData = {}}) {
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({
     nome: currentData.nome,
     email: currentData.email,
     celular: currentData.celular,
   });
+  const { fetchUsers } = useAppContext()
 
   function handleInputChange(event) {
     const target = event.target;
@@ -50,13 +52,8 @@ export default function EditButton({ id, currentData = {}, onUpdate }) {
 
       if (!response.ok) {
         throw new Error("Erro ao atualizar o estudante.");
-      }
-
-      if (response.status === 204) {
-        onUpdate(id, formData);
       } else {
-        const updatedData = await response.json();
-        onUpdate(id, updatedData);
+        fetchUsers()
       }
 
       setEditing(false);

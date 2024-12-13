@@ -1,12 +1,16 @@
 import { X } from "lucide-react";
 import { useState } from "react";
 import { validateEmail, validatePhone } from "./Validate";
+import { useAppContext } from "../context/AppContext";
 
 export default function ModalForm({ closeModal }) {
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputPhone, setInputPhone] = useState("");
   const [error, setError] = useState("");
+
+  const { fetchUsers } = useAppContext()
+
 
   function handleInputName(event) {
     setInputName(event.target.value);
@@ -52,6 +56,8 @@ export default function ModalForm({ closeModal }) {
 
       if (!response.ok) {
         throw new Error("Erro ao adicionar o estudante.");
+      } else {
+        fetchUsers()
       }
 
 

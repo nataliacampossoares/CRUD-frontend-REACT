@@ -1,53 +1,25 @@
 import { useEffect, useState } from "react";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import { useAppContext } from "../context/AppContext";
 
 export default function Card() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  function handleUpdate (id, updatedUser) {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) => (user.id === id ? updatedUser : user))
-    );
-  };
+  const { fetchUsers, users } = useAppContext()
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch(
-          "https://crud-backend-react.onrender.com/usuarios"
-        );
-        if (!response.ok) {
-          throw new Error("Erro ao buscar os usuários");
-        }
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUsers();
+    fetchUsers()
   }, []);
-
-  function handleDelete(id){
-    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-  };
 
   return (
     <div>
       <div className="max-w-7xl mx-auto p-6">
-        {users.length === 0 ? (
+        {users && users.length === 0 ? (
           <p className="text-center text-gray-500">
             Nenhum usuário encontrado.
           </p>
         ) : (
           <div className="flex flex-col w-full">
-            {users.map((user) => (
+            {users && users.map((user) => (
               <div
                 key={user.id}
                 className="bg-white p-6 border-t-2 border-lightYellow grid grid-cols-4 items-center gap-4"
@@ -57,7 +29,7 @@ export default function Card() {
                 <p className="text-black">{user.email}</p>
                 <p className="text-black">{user.celular}</p>
                 <div className="flex justify-end items-center gap-4">
-                  <DeleteButton id={user.id} onDelete={handleDelete} />
+                  <DeleteButton id={user.id} />
                   <EditButton
                     id={user.id}
                     currentData={{
@@ -65,7 +37,6 @@ export default function Card() {
                       email: user.email,
                       celular: user.celular,
                     }}
-                    onUpdate={handleUpdate}
                   />
                 </div>
               </div>

@@ -1,8 +1,10 @@
 import { Trash } from "lucide-react";
 import { useState } from "react";
+import { useAppContext } from "../context/AppContext";
 
-export default function DeleteButton({ id, onDelete }) {
+export default function DeleteButton({ id }) {
   const [error, setError] = useState(null);
+  const { fetchUsers } = useAppContext()
 
   async function deleteStudent () {
     try {
@@ -15,11 +17,12 @@ export default function DeleteButton({ id, onDelete }) {
 
       if (!response.ok) {
         throw new Error("Erro ao deletar o estudante."); 
+      } else {
+        fetchUsers()
       }
 
-      onDelete(id); 
     } catch (error) {
-      setError(error.message); //
+      setError(error.message); 
     }
   };
 

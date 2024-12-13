@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import Student from "./pages/Student.jsx";
 import Payment from "./pages/Payment.jsx";
 import App from "./App.jsx";
+import AppContextProvider from "./context/AppContext.jsx";
 
 const rotas = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +28,8 @@ const rotas = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={rotas} />
-    {/* <App/> */}
+    <AppContextProvider>
+      <RouterProvider router={rotas} />
+    </AppContextProvider>
   </StrictMode>
 );
